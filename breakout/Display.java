@@ -45,12 +45,10 @@ public class Display extends JPanel implements ActionListener{ //, KeyListener{
 	private static int time = 0;
 	
 	private final static Color stringColor = Color.white;
-	//private final static char[] win = {'Y', 'O', 'U', ' ', 'W', 'I', 'N', '!'};
-	//private final static char[] lose = {'Y', 'O', 'U', ' ', 'L', 'O', 'S', 'E', '!'};
 	private final static String win = "You Win!";
 	private final static String lose = "You Lose!";
 	
-	
+	//checkVictory returns true if all the bricks have been broken. Otherwise, false.
 	private static boolean checkVictory(){
 		if(bricksBroken == (bricksX * bricksY)){
 			return true;
@@ -60,21 +58,22 @@ public class Display extends JPanel implements ActionListener{ //, KeyListener{
 		}
 	}
 	
+	//lose is used to set gameState to FAILURE in the event of a lose
 	public static void lose(){
 		gameState = FAILURE;
 	}
 	
 	
 	//Getter and Setter Functions
-	public static int getBrickWidth()			{return brickWidth;}
-	public static int getBrickHeight()			{return brickHeight;}
-	public static int getBrickGap()				{return brickGap;}
-	public static int getBricksX()				{return bricksX;}
-	public static int getBricksY()				{return bricksY;}
-	public static int getBricksBroken()			{return bricksBroken;}
-	public static int getPanelWidth()			{return panelWidth;}
-	public static int getPanelHeight()			{return panelHeight;}
-	public static Brick[][] getBricks()			{return bricks;}
+	public static int getBrickWidth()		{return brickWidth;}
+	public static int getBrickHeight()		{return brickHeight;}
+	public static int getBrickGap()			{return brickGap;}
+	public static int getBricksX()			{return bricksX;}
+	public static int getBricksY()			{return bricksY;}
+	public static int getBricksBroken()		{return bricksBroken;}
+	public static int getPanelWidth()		{return panelWidth;}
+	public static int getPanelHeight()		{return panelHeight;}
+	public static Brick[][] getBricks()		{return bricks;}
 	public static Detection[] getDetectPoints()	{return detectPoints;}
 	
 	public static void setBricksBroken(int bricksBroken){
@@ -96,7 +95,6 @@ public class Display extends JPanel implements ActionListener{ //, KeyListener{
 		timer = new Timer(DELAY, this);
 		gameState = PREPARING;
 		timer.start();
-		//gameState = PREPARING;
 	}
 	
 	//Initializes the grid of Bricks
@@ -170,7 +168,6 @@ public class Display extends JPanel implements ActionListener{ //, KeyListener{
 	private void drawBall(Graphics g){
 		g.setColor(Ball.getColor());
 		g.fillOval(Ball.getX(), Ball.getY(), Ball.getDiameter(), Ball.getDiameter());
-		//System.out.println(ball.getColor() + " " + ball.getX() + " " + ball.getY() + " " + ball.getDiameter() + " " + ball.getDiameter());
 	}
 	
 	//Draws paddle
@@ -182,13 +179,6 @@ public class Display extends JPanel implements ActionListener{ //, KeyListener{
 		g.setColor(Paddle.getColor());
 		g.fillOval(Paddle.getX() + 4, Paddle.getY() + 4, Paddle.getWidth() - 8, Paddle.getHeight() - 8);
 	}
-	
-//	private void test(Graphics g){
-//		g.setColor(Color.RED);
-//		for(int c = 0; c < detectionPoints; c++){
-//			g.fillRect(detectPoints[c].getX(), detectPoints[c].getY(), 2, 2);
-//		}
-//	}
 	
 	/*////////////////////////////////////////
 	/* MOVEMENT
@@ -226,7 +216,6 @@ public class Display extends JPanel implements ActionListener{ //, KeyListener{
         @Override
         public void keyPressed(KeyEvent e) {
             Paddle.keyPressed(e);
-            //System.out.println(panelHeight + " " + Paddle.getY() + " " + Paddle.getHeight());
         }
     }
 }
