@@ -184,7 +184,6 @@ public class Paddle{
 	}
 	
 	public static void keyPressed(KeyEvent e){
-		// TODO Auto-generated method stub
 		int key = e.getKeyCode();
 		
 		if((key == KeyEvent.VK_LEFT)){
@@ -196,7 +195,6 @@ public class Paddle{
 	}
 
 	public static void keyReleased(KeyEvent e){
-		// TODO Auto-generated method stub
 		int key = e.getKeyCode();
 		
 		if(key == KeyEvent.VK_LEFT){
