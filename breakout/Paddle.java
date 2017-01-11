@@ -102,14 +102,6 @@ public class Paddle{
 				Ball.setX(x + width);
 				Ball.setY(Ball.getY() - 3);
 			}
-//			Ball.setDX((-1)*Ball.getDX());
-//			Ball.setDY((-1)*Ball.getDY());
-//			Ball.setX(x+width);
-//			if(x == (Display.getPanelWidth() - Ball.getDiameter()) - width){
-//				Ball.setY(y - Ball.getDiameter());
-//				Ball.setDX(0);
-//				Ball.setDY(-3);
-//			}
 		}
 		else if(side == LEFT){
 			Ball.setDX(Ball.getDX() - 2);
