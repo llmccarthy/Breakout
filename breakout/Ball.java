@@ -22,7 +22,6 @@ public class Ball{
 	private static int x = cenX - (diameter/2);
 	private static int y = cenY - (diameter/2);
 	private static Color color = Color.white;
-	//private static double dir = Math.PI;
 	private static int dx = 0;
 	private static int dy = 3;
 	private static int maxDX = 10;
@@ -82,25 +81,22 @@ public class Ball{
 		Ball.dy = dy;
 	}
 	
+	//move "moves" the ball by changing the ball's position when it called by the timer
 	public static void move(){
 		if((0 < x) || (Display.getPanelWidth() - diameter) > x){
 			x += dx;
 			if(x < 0){
 				x = 0;
 				dx = (-1)*dx;
-				//collisions.add((Integer) RIGHT);
 			}
 			else if(x > (Display.getPanelWidth() - diameter)){
 				x = Display.getPanelWidth() - diameter;
 				dx = (-1)*dx;
-				//collisions.add((Integer) LEFT);
 			}
 		}
 		if((0 < y) || (Display.getPanelHeight() - diameter) > y){
 			y += dy;
 			if(y > (Display.getPanelHeight() - (2*diameter))){
-//				y = Display.getPanelHeight() - (2*diameter);
-//				collisions.add((Integer) TOP);
 				Display.lose();
 			}
 			if(y < 0){
@@ -130,6 +126,7 @@ public class Ball{
 		}
 	}
 	
+	//deflect changes the direction of the ball's movement in the event of the collision
 	public static void deflect(Stack<Integer> collisions){
 		int sumDir = 0;
 		int colNum = collisions.size();
@@ -142,11 +139,9 @@ public class Ball{
 		}
 		else if(side == RIGHT){
 			dx = (-1)*dx;
-			//System.out.println("π * " + (dir/Math.PI)+ " " + side);
 		}
 		else if(side == LEFT){
 			dx = (-1)*dx;
-			//System.out.println("π * " + (dir/Math.PI)+ " " + side);
 		}
 		else if((side == TR_CORNER) || (side == BL_CORNER)){
 			dx = (-1)*dx;
@@ -166,7 +161,6 @@ public class Ball{
 	private static int brickCollision(int detX, int detY, Brick brick){
 		int brickX = brick.getBrickPosX();
 		int brickY = brick.getBrickPosY();
-		//x and y are the position of detector relative to the inside of the brick
 		int x = detX - brickX;
 		int y = detY - brickY;
 		int w = brick.getBrickWidth();
