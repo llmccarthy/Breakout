@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /*
- * The DisplayWindow class puts a graphic window in the display
+ * DisplayWindow puts a graphic window in the display
  */
 
 public class DisplayWindow extends JFrame{
