@@ -3,10 +3,7 @@ package breakout;
 import java.awt.*;
 import javax.swing.*;
 
-/*
- * DisplayWindow puts a graphic window in the display
- */
-
+//The DisplayWindow class puts a graphic window in the display
 public class DisplayWindow extends JFrame{
 	public DisplayWindow(){
 		add(new Display());
